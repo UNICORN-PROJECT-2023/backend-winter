@@ -21,6 +21,7 @@ export class UserService {
     private passwordService: PasswordService,
   ) {}
   
+
   async getMe(userId: number): Promise<CustomerEntity> {
     const customerEntity: CustomerEntity = await this.customerDao.findById(userId);
     customerEntity.password = undefined;
@@ -76,6 +77,20 @@ export class UserService {
 
     return new UserTokenOutDto(jwtToken);
   }
+
+  async validateOwnerListAccess(cstId: number, ListId: number): Promise<boolean> {
+    // TODO: check if cstId is in ListId
+    // cant do now because list enity is not implemented
+    return true;
+  }
+
+  async validateMemberListAccess(cstId: number, ListId: number): Promise<boolean> {
+    // TODO: check if cstId is in ListId
+    // cant do now because list enity is not implemented
+    return true;
+  }
+
+
 }
 
 
